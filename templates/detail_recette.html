@@ -1,0 +1,34 @@
+{%extends "layout.html" %}
+{%block content%}
+<h2>Liste des recettes des {{ cat }}</h2>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+                {% for rec in recettes %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img loading="lazy" src="/static/images/recette{{rec.id_recette}}.jpg" alt="image"/>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <span class="titre">
+                                        {{ rec.nom_recette }}
+                                    </span><br>
+                                    {{ rec.categorie }} <br>{{ rec.niveau }}
+                                    <br>{{ rec.nbre_part }} parts
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group" id="remove_a">
+                                    </div>
+                                    <div class="btn-group">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
